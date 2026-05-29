@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Solicitante - Chamados</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Painel do Solicitante</h1>
+    </header>
+
+    <main class="main-container">
+        <nav class="tabs">
+            <button id="btn-tab-solicitacao" class="tab-btn active" onclick="openTab('solicitacao')">Nova Solicitação</button>
+            <button id="btn-tab-meus-chamados" class="tab-btn" onclick="openTab('meus-chamados')">Meus Chamados</button>
+        </nav>
+
+        <section id="solicitacao" class="content-section active">
+            <div class="actions-bar"><h2>Abrir Ordem de Serviço</h2></div>
+            <div style="max-width: 600px; margin: 20px auto; padding: 25px; background: #f9f9f9; border-radius: 12px;">
+                
+                <label>Selecione a Máquina</label>
+                <select id="select-maquinas-os" class="input-estilizado"></select>
+        
+                <label>Descrição do Problema</label>
+                <textarea id="input-problema-os" rows="4" class="input-estilizado" placeholder="Descreva o que está acontecendo..."></textarea>
+        
+                <button class="btn-create" onclick="enviarSolicitacaoSimples()">Registrar Chamado</button>
+            </div>
+        </section>
+
+        <section id="meus-chamados" class="content-section">
+            <div class="actions-bar">
+                <h2>Acompanhamento de Solicitações</h2>
+            </div>
+        
+            <div class="tabs sub-tabs" style="background: #e9ecef; margin-bottom: 20px; border-radius: 8px;">
+                <button class="tab-btn sub-active" id="sub-btn-ativas" onclick="switchSubTab('ativas')">Em Aberto</button>
+                <button class="tab-btn" id="sub-btn-concluidas" onclick="switchSubTab('concluidas'); carregarHistoricoPessoal()">Histórico / Concluídos</button>
+            </div>
+        
+            <div id="container-ativas" class="sub-content">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Máquina</th>
+                                <th>Técnico</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-minhas-ativas"></tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <div id="container-concluidas" class="sub-content" style="display: none;">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Máquina</th>
+                                <th>Data Conclusão</th>
+                                <th>Relato Técnico</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-minhas-concluidas"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../JavaScript/main.js"></script>
+    <script src="../JavaScript/solicitanteScript.js"></script>
+</body>
+</html>

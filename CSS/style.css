@@ -1,0 +1,377 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9; /* Cinza claro de fundo */
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. HEADER
+   ========================================================================== */
+header {
+    background-color: #1b365d; /* Azul Escuro */
+    color: #ffffff; /* Branco */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   3. LAYOUT PRINCIPAL E SEÇÕES
+   ========================================================================== */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Sub-conteúdos específicos do Solicitante */
+.sub-content {
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   4. NAVEGAÇÃO POR ABAS (CENTRALIZADAS NO TOPO)
+   ========================================================================== */
+.tabs, .sub-tabs {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.sub-tabs {
+    background-color: #e5e7eb; /* Barra cinza para sub-abas */
+    padding: 6px;
+    border-radius: 8px;
+    max-width: fit-content;
+    margin: 0 auto 25px auto;
+}
+
+.tab-btn {
+    background-color: #e5e7eb; /* Cinza padrão */
+    color: #4b5563;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background-color: #d1d5db;
+}
+
+/* Estados ativos (Azul escuro com texto branco) */
+.tab-btn.active, 
+.tab-btn.sub-active,
+button[style*="background-color: rgb(27, 54, 93)"] { 
+    background-color: #1b365d !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   5. FORMULÁRIOS E CAMPOS DE ENTRADA
+   ========================================================================== */
+.actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.actions-bar h2 {
+    color: #1b365d;
+    font-size: 1.3rem;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.input-estilizado, 
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="number"], 
+textarea, 
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+}
+
+.input-estilizado:focus, input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #1b365d;
+    box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.15);
+}
+
+/* ==========================================================================
+   6. BOTÕES
+   ========================================================================== */
+button:not(.tab-btn) {
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-primary, .btn-create, .btn-edit {
+    background-color: #1b365d;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-create:hover, .btn-edit:hover {
+    background-color: #122542;
+}
+
+.btn-secondary, .btn-delete {
+    background-color: #6b7280;
+    color: #ffffff;
+}
+
+.btn-secondary:hover, .btn-delete:hover {
+    background-color: #4b5563;
+}
+
+/* ==========================================================================
+   7. TABELAS (DESKTOP)
+   ========================================================================== */
+.table-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #1b365d;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Status estilizados dentro das tabelas */
+.status-ativo { color: #2e7d32; font-weight: bold; }
+.status-inativo { color: #c62828; font-weight: bold; }
+
+/* ==========================================================================
+   8. MODAIS
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE CRÍTICA (DISPOSITIVOS MÓVEIS -> TRANSFORMAÇÃO EM CARDS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* Ajustes de Navegação do Topo */
+    .tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .actions-bar {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .actions-bar button {
+        width: 100%;
+    }
+
+    /* REMODELAGEM DE TABELA PARA CARDS */
+    .table-container {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block; /* Desfaz a estrutura de tabela */
+        width: 100%;
+    }
+
+    /* Esconde o cabeçalho original superior */
+    thead {
+        display: none;
+    }
+
+    /* Cada linha (TR) vira um CARD físico isolado */
+    tr {
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    tr:hover {
+        background-color: #ffffff;
+    }
+
+    /* Cada célula (TD) vira uma linha interna do Card */
+    td {
+        display: flex;             /* Alinha Título e Conteúdo lado a lado */
+        justify-content: flex-start;/* Garante início à esquerda */
+        align-items: flex-start;
+        text-align: left;
+        padding: 8px 0;
+        border-bottom: 1px solid #f3f4f6;
+        font-size: 0.95rem;
+    }
+
+    td:last-child {
+        border-bottom: none; /* Remove linha residual na última informação */
+        padding-top: 12px;
+    }
+
+    /* Criação do Título Dinâmico do lado Esquerdo */
+    td::before {
+        font-weight: 700;
+        color: #1b365d;           /* Título em Azul Escuro */
+        min-width: 120px;         /* Tamanho fixo para o título à esquerda */
+        width: 120px;
+        flex-shrink: 0;
+        text-align: left;
+        content: attr(data-label);/* Puxa automático onde existir (Módulo Gestor) */
+    }
+
+    /* MAPEAMENTO PARA PERFIS SEM DATA-LABEL (Técnico e Solicitante) */
+    
+    /* 1. Técnico: Minhas Manutenções */
+    #tabela-meus-chamados td:nth-child(1)::before { content: "ID"; }
+    #tabela-meus-chamados td:nth-child(2)::before { content: "Máquina"; }
+    #tabela-meus-chamados td:nth-child(3)::before { content: "Problema"; }
+    #tabela-meus-chamados td:nth-child(4)::before { content: "Solicitante"; }
+    #tabela-meus-chamados td:nth-child(5)::before { content: "Ações"; }
+
+    /* 2. Técnico: Disponíveis */
+    #tabela-chamados-livres td:nth-child(1)::before { content: "ID"; }
+    #tabela-chamados-livres td:nth-child(2)::before { content: "Máquina"; }
+    #tabela-chamados-livres td:nth-child(3)::before { content: "Solicitante"; }
+    #tabela-chamados-livres td:nth-child(4)::before { content: "Ação"; }
+
+    /* 3. Solicitante: Meus Chamados Ativos */
+    #tabela-minhas-ativas td:nth-child(1)::before { content: "ID"; }
+    #tabela-minhas-ativas td:nth-child(2)::before { content: "Máquina"; }
+    #tabela-minhas-ativas td:nth-child(3)::before { content: "Técnico"; }
+    #tabela-minhas-ativas td:nth-child(4)::before { content: "Status"; }
+    #tabela-minhas-ativas td:nth-child(5)::before { content: "Ações"; }
+
+    /* 4. Solicitante: Meus Chamados Concluídos */
+    #tabela-minhas-concluidas td:nth-child(1)::before { content: "ID"; }
+    #tabela-minhas-concluidas td:nth-child(2)::before { content: "Máquina"; }
+    #tabela-minhas-concluidas td:nth-child(3)::before { content: "Conclusão"; }
+    #tabela-minhas-concluidas td:nth-child(4)::before { content: "Relato Técnico"; }
+    #tabela-minhas-concluidas td:nth-child(5)::before { content: "Status"; }
+
+    /* Ajuste para botões de ação dentro dos cards ocuparem espaço natural */
+    td button {
+        margin-right: 5px;
+        padding: 6px 12px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Ajustes dos Modais no Mobile */
+    .modal-content {
+        padding: 20px;
+    }
+    .modal-buttons {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+    .modal-buttons button {
+        width: 100%;
+    }
+}

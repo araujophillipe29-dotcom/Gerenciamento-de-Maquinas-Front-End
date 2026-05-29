@@ -1,0 +1,79 @@
+/* loguin.css - Versão Corrigida */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #363636;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.login-container {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: #1e3a5f;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #1e3a5f;
+    font-weight: 600;
+    display: block;
+}
+
+input {
+    width: 100%; /* Garante que o input ocupe todo o container */
+    margin-top: 6px;
+    padding: 12px;
+    border: 1px solid #ccd1d9;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #1e3a5f;
+    box-shadow: 0 0 6px rgba(30, 58, 95, 0.3);
+}
+
+/* Removido o padding exagerado que quebrava o input de senha */
+.password-container {
+    width: 100%;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1e3a5f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #162d47;
+}

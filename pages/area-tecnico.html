@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Técnico</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Manutenções</h1>
+    </header>
+    <main class="main-container">
+        <nav class="tabs">
+            <button id="btn-meus" class="tab-btn active" onclick="switchTecTab('meus')">
+                Minhas Manutenções
+            </button>
+            <button id="btn-disponiveis" class="tab-btn" onclick="switchTecTab('disponiveis')">
+                Disponíveis
+            </button>
+        </nav>
+
+        <section id="meus-chamados" class="content-section active">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Máquina</th>
+                            <th>Problema</th>
+                            <th>Solicitante</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-meus-chamados"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="chamados-livres" class="content-section">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Máquina</th>
+                            <th>Solicitante</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-chamados-livres"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-finalizar" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Finalizar Manutenção</h2>
+            <p>Descreva o que foi realizado na máquina:</p>
+
+            <input type="hidden" id="finalizar-id-fila">
+            <textarea id="descricao-finalizacao" rows="4"
+                placeholder="Ex: Troca de correia e lubrificação..."></textarea>
+                
+            <label>Próxima manutenção em (dias):</label>
+            <input type="number" id="proxima-dias" placeholder="Ex: 30">
+    
+            <label>Tipo da próxima manutenção:</label>
+            <select id="proxima-tipo">
+                <option value="Preventiva Geral">Preventiva Geral</option>
+                <option value="Troca de Óleo/Filtros">Troca de Óleo/Filtros</option>
+                <option value="Calibração">Calibração</option>
+                <option value="Limpeza Profunda">Limpeza Profunda</option>
+            </select>
+
+            <div class="modal-buttons">
+                <button class="btn-primary" onclick="salvarFinalizacao()">Concluir</button>
+                <button class="btn-secondary" onclick="fecharModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="../JavaScript/tecnicoScript.js"></script>
+</body>
+
+</html>
