@@ -1,7 +1,5 @@
 const API_URL_USU = 'http://localhost:3000/usu';
 
-//CARREGAR USUÁRIOS
-// gerenteScriptUsuario.js
 async function carregarUsuarios() {
     try {
         const response = await fetch(API_URL_USU);

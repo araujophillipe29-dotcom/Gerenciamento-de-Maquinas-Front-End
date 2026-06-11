@@ -1,6 +1,9 @@
+const API_URL_MAN = 'http://localhost:3000/man';
+
+
 async function carregarMaquinas() {
     try {
-        const response = await fetch('http://localhost:3000/man');
+        const response = await fetch(API_URL_MAN);
         
         if (!response.ok) throw new Error("Erro ao buscar dados");
 
@@ -63,7 +66,7 @@ async function salvarMaquina() {
     }
 
     // Se tiver ID, usa PUT na rota com ID. Se não tiver, usa POST na rota base.
-    const url = id ? `http://localhost:3000/man/${id}` : `http://localhost:3000/man`;
+    const url = id ? `${API_URL_MAN}/${id}` : `${API_URL_MAN}`;
     const metodo = id ? 'PUT' : 'POST';
 
     try {
@@ -102,7 +105,7 @@ async function deletarMaquina(id) {
 
     try {
         //Fazer a requisição DELETE para a API
-        const response = await fetch(`http://localhost:3000/man/${id}`, {
+        const response = await fetch(`${API_URL_MAN}/${id}`, {
             method: 'DELETE'
         });
 

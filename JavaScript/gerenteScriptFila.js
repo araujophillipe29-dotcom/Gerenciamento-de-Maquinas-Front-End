@@ -5,9 +5,9 @@ async function preencherFormularioOS() {
     try {
         // Busca os dados. Usamos Promise.allSettled para que se uma rota falhar, as outras ainda carreguem.
         const resultados = await Promise.allSettled([
-            fetch('http://localhost:3000/man'),
-            fetch('http://localhost:3000/usu/solicitantes'),
-            fetch('http://localhost:3000/usu/tecnicos')
+            fetch(API_URL_MAN),
+            fetch(`${API_URL_USU}/solicitantes`),
+            fetch(`${API_URL_USU}/tecnicos`)
         ]);
 
         // Função auxiliar para extrair o JSON apenas se a requisição deu certo
@@ -87,7 +87,7 @@ async function enviarNovaSolicitacao() {
 
     try {
         // Use a URL completa caso API_URL_FILA não esteja definida globalmente
-        const response = await fetch('http://localhost:3000/fila/abrir', {
+        const response = await fetch(`${API_URL_FILA}/abrir`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dados)
@@ -130,7 +130,7 @@ async function cancelarSolicitacao(id_fila) {
     if (!confirmar) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/fila/cancelar`, {
+        const response = await fetch(`${API_URL_FILA}/cancelar`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id_fila: id_fila })
@@ -175,7 +175,7 @@ function switchSubTab(tipo) {
 // Carregar todos os dados da fila (Ativos e Histórico)
 async function carregarFilaGlobal() {
     try {
-        const response = await fetch('http://localhost:3000/fila/ativas'); 
+        const response = await fetch(`${API_URL_FILA}/ativas`); 
         const dados = await response.json();
         if (!dados.sucess) return;
 
@@ -216,7 +216,7 @@ async function carregarFilaGlobal() {
 
 async function carregarManutencoesConcluidas() {
     try {
-        const res = await fetch('http://localhost:3000/fila/concluidas');
+        const res = await fetch(`${API_URL_FILA}/concluidas`);
         const resultado = await res.json();
         const chamados = resultado.dados || [];
         const tabela = document.getElementById('tabela-fila-concluidas');
@@ -253,7 +253,7 @@ async function carregarManutencoesConcluidas() {
 
 async function carregarProximasManutencoes() {
     try {
-        const res = await fetch('http://localhost:3000/fila/proximas');
+        const res = await fetch(`${API_URL_FILA}/proximas`);
         const dados = await res.json();
         const tabela = document.getElementById('tabela-proximas');
         if (!tabela) return;
