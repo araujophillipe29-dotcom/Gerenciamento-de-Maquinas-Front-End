@@ -81,7 +81,7 @@ async function salvarUsuario() {
             carregarUsuarios();
         } else {
             const erro = await response.json();
-            alert("Erro na operação: " + (erro.mensagem || "Verifique os dados"));
+            alert("Erro na operação: " + (erro.mensagem || "Verifique os dados, senha necessária"));
         }
     } catch (err) {
         console.error(err);

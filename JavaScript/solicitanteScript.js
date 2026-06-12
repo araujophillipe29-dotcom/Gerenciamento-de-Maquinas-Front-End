@@ -2,7 +2,7 @@ const USUARIO_LOGADO_ID = localStorage.getItem('user_id');
 
 async function popularMaquinas() {
     try {
-        const response = await fetch(`${API_URL_MAN}`);
+        const response = await fetch(API_URL_MAN);
         const maquinas = await response.json();
         const selMaq = document.getElementById('select-maquinas-os');
 
