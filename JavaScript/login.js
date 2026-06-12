@@ -1,4 +1,4 @@
-const API_URL_AUTH = 'http://localhost:3000/auth';
+const API_URL_AUTH = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app/auth';
 
 async function efetuarLoguin() {
     const email = document.getElementById('email').value;
