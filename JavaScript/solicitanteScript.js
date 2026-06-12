@@ -1,4 +1,7 @@
 const USUARIO_LOGADO_ID = localStorage.getItem('user_id');
+const API_URL_MAN = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app/man';
+const API_URL_FILA = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app/fila';
+const API_URL_USU = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app/usu';
 
 async function popularMaquinas() {
     try {
