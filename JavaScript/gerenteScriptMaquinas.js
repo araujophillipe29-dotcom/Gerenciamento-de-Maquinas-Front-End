@@ -1,4 +1,4 @@
-const API_URL_MAN = 'http://localhost:3000/man';
+const API_URL_MAN = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app/man';
 
 
 async function carregarMaquinas() {

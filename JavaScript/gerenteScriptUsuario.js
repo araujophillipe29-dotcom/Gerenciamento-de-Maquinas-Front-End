@@ -1,4 +1,4 @@
-const API_URL_USU = 'http://localhost:3000/usu';
+const API_URL_USU = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app//usu';
 
 async function carregarUsuarios() {
     try {

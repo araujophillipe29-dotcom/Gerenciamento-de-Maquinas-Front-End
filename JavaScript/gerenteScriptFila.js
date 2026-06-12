@@ -1,4 +1,4 @@
-const API_URL_FILA = 'http://localhost:3000/fila';
+const API_URL_FILA = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app/fila';
 
 async function preencherFormularioOS() {
     console.log("Tentando preencher o formulário...");
