@@ -1,3 +1,5 @@
+const API_URL_AUTH = 'http://localhost:3000/auth';
+
 async function efetuarLoguin() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -8,7 +10,7 @@ async function efetuarLoguin() {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/auth', {
+        const response = await fetch(`${API_URL_AUTH}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }) 

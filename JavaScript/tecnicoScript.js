@@ -3,7 +3,7 @@ document.getElementById('nome-tecnico').innerText = localStorage.getItem('user_n
 
 async function carregarPainelTecnico() {
     try {
-        const res = await fetch('http://localhost:3000/fila/ativas');
+        const res = await fetch(`${API_URL_FILA}/ativas`);
         const resultado = await res.json();
 
         // Garante que temos uma lista para trabalhar
@@ -100,7 +100,7 @@ async function assumirChamado(idFila) {
     }
 
     try {
-        const res = await fetch(`http://localhost:3000/fila/assumir`, {
+        const res = await fetch(`${API_URL_FILA}/assumir`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
@@ -186,7 +186,7 @@ async function salvarFinalizacao() {
     }
 
     try {
-        const res = await fetch(`http://localhost:3000/fila/finalizar`, {
+        const res = await fetch(`${API_URL_FILA}/finalizar`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             // CORRETO: Um único objeto com todos os campos
@@ -215,7 +215,7 @@ async function salvarFinalizacao() {
 
 async function iniciarManutencao(id_fila) {
     try {
-        const res = await fetch(`http://localhost:3000/fila/iniciar`, {
+        const res = await fetch(`${API_URL_FILA}/iniciar`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 

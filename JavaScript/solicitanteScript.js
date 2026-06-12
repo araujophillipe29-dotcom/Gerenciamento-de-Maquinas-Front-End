@@ -1,9 +1,8 @@
-
 const USUARIO_LOGADO_ID = localStorage.getItem('user_id');
 
 async function popularMaquinas() {
     try {
-        const response = await fetch('http://localhost:3000/man');
+        const response = await fetch(`${API_URL_MAN}`);
         const maquinas = await response.json();
         const selMaq = document.getElementById('select-maquinas-os');
 
@@ -43,7 +42,7 @@ async function enviarSolicitacaoSimples() {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/fila/abrir', {
+        const response = await fetch(`${API_URL_FILA}/abrir`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dados)
@@ -66,7 +65,7 @@ async function enviarSolicitacaoSimples() {
 
 async function carregarMeusChamados() {
     try {
-        const response = await fetch(`http://localhost:3000/fila/ativas`);
+        const response = await fetch(`${API_URL_FILA}/ativas`);
         const resultado = await response.json();
         const tabela = document.getElementById('tabela-minhas-ativas');
         tabela.innerHTML = "";
@@ -96,7 +95,7 @@ async function carregarMeusChamados() {
 
 async function carregarHistoricoPessoal() {
     try {
-        const res = await fetch('http://localhost:3000/fila/concluidas');
+        const res = await fetch(`${API_URL_FILA}/concluidas`);
         const resultado = await res.json();
         const tabela = document.getElementById('tabela-minhas-concluidas');
         tabela.innerHTML = "";
@@ -140,7 +139,7 @@ function switchSubTab(tipo) {
 async function cancelarMeuChamado(id) {
     if (!confirm("Deseja cancelar seu pedido?")) return;
     try {
-        await fetch(`http://localhost:3000/fila/cancelar`, {
+        await fetch(`${API_URL_FILA}/cancelar`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id_fila: id })
