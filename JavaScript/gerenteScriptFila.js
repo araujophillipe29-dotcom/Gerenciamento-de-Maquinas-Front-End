@@ -86,7 +86,6 @@ async function enviarNovaSolicitacao() {
     };
 
     try {
-        // Use a URL completa caso API_URL_FILA não esteja definida globalmente
         const response = await fetch(`${API_URL_FILA}/abrir`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

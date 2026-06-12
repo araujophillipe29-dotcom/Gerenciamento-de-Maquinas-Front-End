@@ -4,14 +4,17 @@ async function popularMaquinas() {
     try {
         const response = await fetch(API_URL_MAN);
         const maquinas = await response.json();
-        const selMaq = document.getElementById('select-maquinas-os');
 
+        const selMaq = document.getElementById('select-maquinas-os');
         if (selMaq) {
-            selMaq.innerHTML = '<option value="">-- Selecione a Máquina --</option>';
-            selMaq.innerHTML += maquinas
-                .filter(m => m.situacao == 1)
-                .map(m => `<option value="${m.id_maquina}">${m.nome_maquina}</option>`)
-                .join('');
+            selMaq.innerHTML = '<option value=""> Selecione a Máquina </option>';
+            if (maquinas.length > 0) {
+                // Filtramos apenas as máquinas com situação 1 (Ativas)
+                selMaq.innerHTML += maquinas
+                    .filter(m => m.situacao == 1)
+                    .map(m => `<option value="${m.id_maquina}">${m.nome_maquina} (${m.descricao || 'Sem descrição'})</option>`)
+                    .join('');
+            }
         }
     } catch (error) {
         console.error("Erro ao carregar máquinas:", error);
