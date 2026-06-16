@@ -114,9 +114,9 @@ async function enviarNovaSolicitacao() {
                 openTab('todas-solicitacoes');
             }
         } else {
-            // Isso vai te mostrar exatamente o que o servidor respondeu de errado
-            console.log("Resposta do servidor:", resultado);
-            alert("Erro: " + (resultado.message || "Erro desconhecido. Verifique o console."));
+            // Busca por .message ou por .erro, o que tiver disponível
+            const mensagemErro = resultado.message || resultado.erro || "Erro ao registrar no servidor.";
+            alert("Erro: " + mensagemErro);
         }
     } catch (error) {
         console.error("Erro na requisição:", error);
@@ -255,7 +255,9 @@ async function carregarManutencoesConcluidas() {
 async function carregarProximasManutencoes() {
     try {
         const res = await fetch(`${API_URL_FILA}/proximas`);
-        const dados = await res.json();
+        const respostaObjeto = await res.json();
+        const dados = Array.isArray(respostaObjeto) ? respostaObjeto : (respostaObjeto.dados || []);
+
         const tabela = document.getElementById('tabela-proximas');
         if (!tabela) return;
 
