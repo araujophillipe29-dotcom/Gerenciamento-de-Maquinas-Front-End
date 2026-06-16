@@ -114,7 +114,9 @@ async function enviarNovaSolicitacao() {
                 openTab('todas-solicitacoes');
             }
         } else {
-            alert("Erro: " + (resultado.message || "Erro ao registrar no servidor."));
+            // Isso vai te mostrar exatamente o que o servidor respondeu de errado
+            console.log("Resposta do servidor:", resultado);
+            alert("Erro: " + (resultado.message || "Erro desconhecido. Verifique o console."));
         }
     } catch (error) {
         console.error("Erro na requisição:", error);
