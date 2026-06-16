@@ -176,36 +176,32 @@ function fecharModal() {
 async function salvarFinalizacao() {
     const id_fila = document.getElementById('finalizar-id-fila').value;
     const relato = document.getElementById('descricao-finalizacao').value;
-    const dias = document.getElementById('proxima-dias').value;
+    const dias = parseInt(document.getElementById('proxima-dias').value);
     const tipo = document.getElementById('proxima-tipo').value;
 
-    // Validação
-    if (!relato.trim()) {
-        alert("Por favor, descreva o que foi feito na manutenção.");
+    if (!relato || !dias || !tipo) {
+        alert("Por favor, preencha todos os campos da finalização!");
         return;
     }
-    if (!dias) {
-        alert("Por favor, informe em quantos dias deve ser a próxima manutenção.");
-        return;
-    }
+
+    const dados = {
+        id_fila: parseInt(id_fila),
+        manutencoes_realizadas: relato,
+        dias: dias,
+        tipo: tipo
+    };
 
     try {
         const res = await fetch(`${API_URL_FILA}/finalizar`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            // CORRETO: Um único objeto com todos os campos
-            body: JSON.stringify({ 
-                id_fila: id_fila, 
-                manutencoes_realizadas: relato, 
-                dias: dias, 
-                tipo: tipo 
-            })
+            body: JSON.stringify(dados)
         });
 
         const resultado = await res.json();
 
         if (res.ok && resultado.sucess) {
-            alert(resultado.message);
+            alert(resultado.message || "Manutenção finalizada com sucesso!");
             fecharModal();
             carregarPainelTecnico(); 
         } else {
@@ -232,7 +228,7 @@ async function iniciarManutencao(id_fila) {
 
         if (res.ok && resultado.sucess) {
             alert("Manutenção iniciada com sucesso!");
-            carregarPainelTecnico(); // Atualiza a tela para mudar o botão
+            carregarPainelTecnico();
         } else {
             alert("Erro ao iniciar: " + (resultado.message || "Tente novamente."));
         }
