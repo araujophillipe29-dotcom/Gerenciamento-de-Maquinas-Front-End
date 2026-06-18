@@ -1,5 +1,5 @@
 {
-    "short_name": "WR: WorkRequest",
+    "short_name": "WorkRequest",
     "name":"WorkRequest: Para gerenciamentos de máquinas industriais",
     "start_url": "./index.html",
     "display":"standalone",

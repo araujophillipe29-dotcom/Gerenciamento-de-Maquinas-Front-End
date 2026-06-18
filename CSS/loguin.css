@@ -4,6 +4,11 @@
     box-sizing:border-box;
     font-family:'Segoe UI',sans-serif;
 }
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
 
 body{
     min-height:100vh;
@@ -55,14 +60,20 @@ body{
 
 .login-wrapper{
     width:100%;
-    max-width:1000px;
+    min-height:100vh;
 
-    display:flex;
-    align-items:center;
+    display:grid;
+
+    grid-template-columns:
+    minmax(280px,450px)
+    minmax(280px,420px);
+
     justify-content:center;
-    gap:60px;
+    align-items:center;
 
-    padding:30px;
+    gap:40px;
+
+    padding:20px;
 }
 
 /* Área da marca */
@@ -196,33 +207,68 @@ button:active{
 
 /* Responsivo */
 
-@media(max-width:900px){
+@media (max-width: 900px){
 
     .login-wrapper{
-        flex-direction:column;
-        gap:25px;
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .login-brand{
+        max-width:100%;
     }
 
     .login-brand img{
-        width:160px;
+        width:140px;
     }
 
     .login-brand h1{
         font-size:1.8rem;
     }
 
-    .login-container{
-        max-width:420px;
-    }
 }
+@media (max-width: 600px){
 
-@media(max-width:500px){
+    body{
+        padding:15px;
+    }
 
-    .login-container{
-        padding:30px 25px;
+    .login-wrapper{
+        padding:0;
+        gap:15px;
+    }
+
+    .login-brand{
+        margin-top:20px;
+    }
+
+    .login-brand img{
+        width:110px;
+    }
+
+    .login-brand h1{
+        font-size:1.5rem;
     }
 
     .login-brand p{
-        font-size:.95rem;
+        display:none;
+    }
+
+    .login-container{
+        width:100%;
+        max-width:none;
+
+        padding:25px 20px;
+
+        border-radius:18px;
+    }
+
+    input{
+        padding:12px;
+        font-size:16px;
+    }
+
+    button{
+        padding:14px;
     }
 }
