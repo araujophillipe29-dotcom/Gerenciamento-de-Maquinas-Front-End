@@ -1,6 +1,6 @@
 {
-    "short_name": "WR WorkRequest",
-    "name":"WorkRequest Para gerenciamentos de máquinas industriais",
+    "short_name": "WR: WorkRequest",
+    "name":"WorkRequest: Para gerenciamentos de máquinas industriais",
     "start_url": "./index.html",
     "display":"standalone",
     "background_color":"#ffffff",
