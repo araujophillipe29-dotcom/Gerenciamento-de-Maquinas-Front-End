@@ -272,3 +272,262 @@ button:active{
         padding:14px;
     }
 }
+
+/* ====================================
+   SPLASH SCREEN
+==================================== */
+
+#splash-screen{
+
+    position:fixed;
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071726,
+        #0B2740,
+        #12385A
+    );
+
+    transition:
+    opacity .8s ease,
+    visibility .8s ease;
+}
+
+#splash-screen.hide{
+
+    opacity:0;
+    visibility:hidden;
+}
+
+.industrial-bg::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    left:-200px;
+    top:-200px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        rgba(0,140,255,.25),
+        transparent
+    );
+
+    filter:blur(80px);
+}
+
+.industrial-bg::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    right:-150px;
+    bottom:-150px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        rgba(255,255,255,.08),
+        transparent
+    );
+
+    filter:blur(80px);
+}
+
+.halo{
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        rgba(0,170,255,.4),
+        transparent 70%
+    );
+
+    filter:blur(20px);
+
+    animation:
+    pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow{
+
+    0%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+}
+
+.gear-wrapper{
+
+    position:relative;
+
+    width:260px;
+    height:220px;
+}
+
+.gear{
+
+    position:absolute;
+
+    user-select:none;
+    pointer-events:none;
+}
+
+.gear-large{
+
+    width:170px;
+
+    left:20px;
+
+    animation:
+    rotateClockwise 7s linear infinite;
+}
+
+.gear-small{
+
+    width:110px;
+
+    left:140px;
+    top:85px;
+
+    animation:
+    rotateCounterClockwise 7s linear infinite;
+}
+
+@keyframes rotateClockwise{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(-360deg);
+    }
+}
+
+.brand-loading{
+
+    color:white;
+
+    text-align:center;
+
+    margin-top:25px;
+}
+
+.brand-loading h1{
+
+    font-size:40px;
+}
+
+.brand-loading p{
+
+    margin-top:10px;
+
+    color:#dce8f7;
+}
+
+.progress-container{
+
+    width:min(400px,85vw);
+
+    height:12px;
+
+    margin-top:30px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:
+    rgba(255,255,255,.15);
+}
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00AFFF,
+        #58C8FF
+    );
+
+    transition:.2s;
+}
+
+.percent{
+
+    margin-top:12px;
+
+    color:white;
+}
+
+.login-wrapper{
+    opacity:0;
+    animation:showLogin .8s ease forwards;
+    animation-delay:4.5s;
+}
+
+@keyframes showLogin{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

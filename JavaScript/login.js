@@ -43,3 +43,71 @@ async function efetuarLoguin() {
         alert("Erro ao conectar com o servidor.");
     }
 }
+
+/* =====================================
+   SPLASH SCREEN
+===================================== */
+
+window.addEventListener("load", () => {
+
+    const splash =
+    document.getElementById("splash-screen");
+
+    const progressBar =
+    document.getElementById("progressBar");
+
+    const percent =
+    document.getElementById("percentValue");
+
+    const loadingText =
+    document.getElementById("loadingText");
+
+    const messages = [
+        "Inicializando Sistema...",
+        "Carregando Recursos...",
+        "Sincronizando Dados...",
+        "Concluído ✓"
+    ];
+
+    let progress = 0;
+    let msgIndex = 0;
+
+    const msgTimer = setInterval(() => {
+
+        msgIndex++;
+
+        if(msgIndex < messages.length){
+
+            loadingText.innerText =
+            messages[msgIndex];
+        }
+
+    },2500);
+
+    const progressTimer =
+    setInterval(() => {
+
+        progress++;
+
+        progressBar.style.width =
+        progress + "%";
+
+        percent.innerText =
+        progress + "%";
+
+        if(progress >= 100){
+
+            clearInterval(progressTimer);
+            clearInterval(msgTimer);
+
+            setTimeout(() => {
+
+                splash.classList.add("hide");
+
+            },700);
+
+        }
+
+    },35);
+
+});

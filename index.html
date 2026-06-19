@@ -16,40 +16,83 @@
 </head>
 
 <body>
-    <div class="background-shapes"></div>
 
-    <div class="login-wrapper">
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
 
-        <div class="login-brand">
-            <img src="images/icon-512.png" alt="Logo Sistema">
+        <div class="industrial-bg"></div>
+
+        <div class="halo"></div>
+
+        <div class="gear-wrapper">
+
+            <img src="images/engrenagem.png" class="gear gear-large" alt="Engrenagem">
+
+            <img src="images/engrenagem2.png" class="gear gear-small" alt="Engrenagem">
+
+        </div>
+
+        <div class="brand-loading">
 
             <h1>Work Request</h1>
 
-            <p>
-                Sistema Inteligente para Gestão Industrial
+            <p id="loadingText">
+                Inicializando Sistema...
             </p>
+
         </div>
 
-        <div class="login-container">
+        <div class="progress-container">
 
-            <h2>Acesso ao Sistema</h2>
+            <div id="progressBar" class="progress-bar"></div>
 
-            <label>Email</label>
-            <input type="email" id="email" placeholder="Digite seu email">
+        </div>
 
-            <label>Senha</label>
-            <div class="password-container">
-                <input type="password" id="password" placeholder="Digite sua senha">
-            </div>
-
-            <button onclick="efetuarLoguin()">
-                Entrar
-            </button>
-
+        <div class="percent">
+            <span id="percentValue">0%</span>
         </div>
 
     </div>
 
+    <!-- SUA TELA DE LOGIN -->
+    <div class="background-shapes"></div>
+
+    <div class="login-wrapper">
+
+        <div class="background-shapes"></div>
+
+        <div class="login-wrapper">
+
+            <div class="login-brand">
+                <img src="images/icon-512.png" alt="Logo Sistema">
+
+                <h1>Work Request</h1>
+
+                <p>
+                    Sistema Inteligente para Gestão Industrial
+                </p>
+            </div>
+
+            <div class="login-container">
+
+                <h2>Acesso ao Sistema</h2>
+
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Digite seu email">
+
+                <label>Senha</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Digite sua senha">
+                </div>
+
+                <button onclick="efetuarLoguin()">
+                    Entrar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
     <script src="../JavaScript/login.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
