@@ -1,0 +1,675 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071726,
+        #0b2740,
+        #12385a
+    );
+
+    overflow:hidden;
+    position:relative;
+}
+
+/* Fundo industrial */
+
+.background-shapes::before,
+.background-shapes::after{
+    content:'';
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+}
+
+.background-shapes::before{
+    width:350px;
+    height:350px;
+    background:#1f5ea8;
+    top:-120px;
+    left:-120px;
+    opacity:.25;
+}
+
+.background-shapes::after{
+    width:300px;
+    height:300px;
+    background:#ffffff;
+    bottom:-100px;
+    right:-100px;
+    opacity:.08;
+}
+
+/* ====================================
+   LAYOUT LOGIN
+==================================== */
+
+.login-wrapper{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+    position:relative;
+    z-index:2;
+}
+
+/* Segunda login-wrapper (a que contém logo e formulário) */
+
+.login-wrapper > .login-wrapper{
+
+    width:100%;
+    max-width:1200px;
+
+    display:flex;
+    flex-direction:row;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:80px;
+}
+
+/* ====================================
+   ÁREA DA MARCA
+==================================== */
+
+.login-brand{
+
+    order:1;
+
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    max-width:500px;
+}
+
+.login-brand img{
+
+    width:260px;
+    max-width:75%;
+
+    margin-bottom:28px;
+
+    filter:
+        drop-shadow(0 0 18px rgba(255,255,255,.18));
+}
+
+.login-brand h1{
+
+    font-size:2.7rem;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.login-brand p{
+
+    color:#dce6ef;
+
+    line-height:1.8;
+
+    font-size:1.08rem;
+
+    max-width:420px;
+}
+
+/* ====================================
+   CARD LOGIN
+==================================== */
+
+.login-container{
+
+    order:2;
+
+    width:100%;
+    max-width:430px;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(10px);
+
+    padding:42px;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35);
+
+    flex-shrink:0;
+}
+
+.login-container h2{
+
+    text-align:center;
+
+    color:#0b2740;
+
+    margin-bottom:30px;
+
+    font-size:1.7rem;
+}
+
+label{
+
+    display:block;
+
+    margin-top:16px;
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#2b3d50;
+}
+
+input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #d5dce5;
+
+    border-radius:12px;
+
+    background:#f7f9fc;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+input:focus{
+
+    outline:none;
+
+    border-color:#0d6efd;
+
+    background:white;
+
+    box-shadow:
+        0 0 0 4px rgba(13,110,253,.15);
+}
+
+button{
+
+    width:100%;
+
+    margin-top:30px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b2740,
+            #0d6efd
+        );
+
+    transition:.3s;
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(13,110,253,.35);
+}
+
+button:active{
+
+    transform:translateY(0);
+}
+
+/* ====================================
+   RESPONSIVO TABLET
+==================================== */
+
+@media (max-width:950px){
+
+    .login-wrapper{
+
+        padding:30px 20px;
+    }
+
+    .login-wrapper > .login-wrapper{
+
+        flex-direction:column;
+
+        gap:40px;
+
+        max-width:520px;
+    }
+
+    .login-brand{
+
+        max-width:100%;
+    }
+
+    .login-brand img{
+
+        width:180px;
+    }
+
+    .login-brand h1{
+
+        font-size:2rem;
+    }
+
+    .login-brand p{
+
+        font-size:1rem;
+    }
+
+    .login-container{
+
+        width:100%;
+
+        max-width:100%;
+    }
+
+}
+
+/* ====================================
+   RESPONSIVO CELULAR
+==================================== */
+
+@media (max-width:600px){
+
+    body{
+
+        padding:15px;
+    }
+
+    .login-wrapper{
+
+        padding:15px;
+    }
+
+    .login-wrapper > .login-wrapper{
+
+        gap:25px;
+    }
+
+    .login-brand img{
+
+        width:120px;
+    }
+
+    .login-brand h1{
+
+        font-size:1.6rem;
+    }
+
+    .login-brand p{
+
+        display:none;
+    }
+
+    .login-container{
+
+        padding:28px 22px;
+
+        border-radius:18px;
+    }
+
+    input{
+
+        padding:13px;
+
+        font-size:16px;
+    }
+
+    button{
+
+        padding:14px;
+    }
+
+}
+/* ====================================
+   SPLASH SCREEN
+==================================== */
+
+#splash-screen{
+
+    position:fixed;
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071726,
+        #0B2740,
+        #12385A
+    );
+
+    transition:
+    opacity .8s ease,
+    visibility .8s ease;
+}
+
+#splash-screen.hide{
+
+    opacity:0;
+    visibility:hidden;
+}
+
+.industrial-bg::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    left:-200px;
+    top:-200px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        rgba(0,140,255,.25),
+        transparent
+    );
+
+    filter:blur(80px);
+}
+
+.industrial-bg::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    right:-150px;
+    bottom:-150px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        rgba(255,255,255,.08),
+        transparent
+    );
+
+    filter:blur(80px);
+}
+
+.halo{
+
+    position:absolute;
+
+    width:clamp(180px, 35vw, 300px);
+    height:clamp(180px, 35vw, 300px);
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        rgba(0,170,255,.4),
+        transparent 70%
+    );
+
+    filter:blur(20px);
+
+    animation:
+    pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow{
+
+    0%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+}
+
+.gear-wrapper{
+    position:relative;
+
+    width:min(60vw, 280px);
+    height:min(50vw, 220px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.gear{
+
+    position:absolute;
+
+    user-select:none;
+    pointer-events:none;
+}
+
+.gear-large{
+
+    width:clamp(120px, 20vw, 170px);
+
+    left:20px;
+
+    animation:
+    rotateClockwise 7s linear infinite;
+}
+
+.gear-small{
+
+    width:clamp(75px, 12vw, 110px);
+
+    left:140px;
+    top:85px;
+
+    animation:
+    rotateCounterClockwise 7s linear infinite;
+}
+
+@keyframes rotateClockwise{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(-360deg);
+    }
+}
+
+.brand-loading{
+
+    color:white;
+
+    text-align:center;
+
+    margin-top:25px;
+}
+
+.brand-loading h1{
+
+    font-size:clamp(28px, 5vw, 42px);
+}
+
+.brand-loading p{
+
+    margin-top:10px;
+
+    color:#dce8f7;
+    
+    font-size:clamp(
+        13px,
+        2vw,
+        16px
+    );
+}
+
+.progress-container{
+
+    width:min(400px,85vw);
+
+    height:12px;
+
+    margin-top:30px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:
+    rgba(255,255,255,.15);
+}
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00AFFF,
+        #58C8FF
+    );
+
+    transition:.2s;
+}
+
+.percent{
+
+    margin-top:12px;
+
+    color:white;
+}
+
+.login-wrapper{
+    opacity:0;
+    animation:showLogin .8s ease forwards;
+    animation-delay:4.5s;
+}
+
+@keyframes showLogin{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media (max-width:480px){
+
+    .gear-wrapper{
+
+        transform:scale(.85);
+    }
+
+    .progress-container{
+
+        width:90vw;
+    }
+
+    .brand-loading{
+
+        margin-top:10px;
+    }
+}
+
+@media (max-height:500px){
+
+    .gear-wrapper{
+
+        transform:scale(.75);
+    }
+
+    .brand-loading h1{
+
+        font-size:24px;
+    }
+
+    .progress-container{
+
+        margin-top:15px;
+    }
+}
