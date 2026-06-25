@@ -11,96 +11,65 @@
     <meta name="apple-mobile-web-app-title" content="InovaWeb" />
     <link rel="apple-touch-icon" href="images/icon-192.png" />
     <link rel="icon" type="image/png" href="images/icon-192.png" />
-    <link rel="stylesheet" href="CSS/loguin_refatorado.css">
+    <link rel="stylesheet" href="CSS/loguin.css">
     <title>Login</title>
 </head>
 
 <body>
 
-    <!-- SPLASH SCREEN -->
     <div id="splash-screen">
-
         <div class="industrial-bg"></div>
-
         <div class="halo"></div>
-
         <div class="gear-wrapper">
-
             <img src="images/engrenagem.png" class="gear gear-large" alt="Engrenagem">
-
             <img src="images/engrenagem2.png" class="gear gear-small" alt="Engrenagem">
-
         </div>
-
         <div class="brand-loading">
-
             <h1>Work Request</h1>
-
-            <p id="loadingText">
-                Inicializando Sistema...
-            </p>
-
+            <p id="loadingText">Inicializando Sistema...</p>
         </div>
-
         <div class="progress-container">
-
             <div id="progressBar" class="progress-bar"></div>
-
         </div>
-
         <div class="percent">
             <span id="percentValue">0%</span>
         </div>
-
     </div>
 
-    <!-- SUA TELA DE LOGIN -->
     <div class="background-shapes"></div>
 
     <div class="login-wrapper">
 
         <div class="login-brand">
-
-            <div>
-
-                <div class="login-brand">
-                    <img src="images/icon-512.png" alt="Logo Sistema">
-
-                    <h1>Work Request</h1>
-
-                    <p>
-                        Sistema Inteligente para Gestão Industrial
-                    </p>
-                </div>
-
-                <div class="login-container">
-
-                    <h2>Acesso ao Sistema</h2>
-
-                    <label>Email</label>
-                    <input type="email" id="email" placeholder="Digite seu email">
-
-                    <label>Senha</label>
-                    <div class="password-container">
-                        <input type="password" id="password" placeholder="Digite sua senha">
-                    </div>
-
-                    <button onclick="efetuarLoguin()">
-                        Entrar
-                    </button>
-
-                </div>
-
-            </div>
+            <img src="images/icon-512.png" alt="Logo Sistema">
+            <h1>Work Request</h1>
+            <p>Sistema Inteligente para Gestão Industrial</p>
         </div>
-        <script src="../JavaScript/login.js"></script>
-        <script>
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service-worker.js')
-                    .then(() => console.log("Pronto! Seu site agora é um App."))
-                    .catch((err) => console.log("Erro ao criar o App:", err));
-            }
-        </script>
+
+        <div class="login-container">
+            <h2>Acesso ao Sistema</h2>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Digite seu email">
+
+            <label for="password">Senha</label>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Digite sua senha">
+            </div>
+
+            <button onclick="efetuarLoguin()">Entrar</button>
+        </div>
+
+    </div>
+
+    <script src="../JavaScript/login.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(() => console.log("Pronto! Seu site agora é um App."))
+                .catch((err) => console.log("Erro ao criar o App:", err));
+        }
+    </script>
 </body>
 
 </html>

@@ -1,677 +1,413 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-html,
-body{
-    width:100%;
-    overflow-x:hidden;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-    linear-gradient(
-        135deg,
-        #071726,
-        #0b2740,
-        #12385a
-    );
-
-    overflow:hidden;
-    position:relative;
-}
-
-/* Fundo industrial */
-
-.background-shapes::before,
-.background-shapes::after{
-    content:'';
-    position:absolute;
-    border-radius:50%;
-    filter:blur(90px);
-}
-
-.background-shapes::before{
-    width:350px;
-    height:350px;
-    background:#1f5ea8;
-    top:-120px;
-    left:-120px;
-    opacity:.25;
-}
-
-.background-shapes::after{
-    width:300px;
-    height:300px;
-    background:#ffffff;
-    bottom:-100px;
-    right:-100px;
-    opacity:.08;
-}
-
-/* Layout */
-
-/* ====================================
-   LAYOUT LOGIN
-==================================== */
-
-.login-wrapper{
-    width:100%;
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:40px;
-    position:relative;
-    z-index:2;
-}
-
-/* Segunda login-wrapper (a que contém logo e formulário) */
-
-.login-wrapper > .login-wrapper{
-
-    width:100%;
-    max-width:1200px;
-
-    display:flex;
-    flex-direction:row;
-
-    justify-content:space-between;
-    align-items:center;
-
-    gap:80px;
-}
-
-/* ====================================
-   ÁREA DA MARCA
-==================================== */
-
-.login-brand{
-
-    order:1;
-
-    flex:1;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    color:white;
-
-    max-width:500px;
-}
-
-.login-brand img{
-
-    width:260px;
-    max-width:75%;
-
-    margin-bottom:28px;
-
-    filter:
-        drop-shadow(0 0 18px rgba(255,255,255,.18));
-}
-
-.login-brand h1{
-
-    font-size:2.7rem;
-
-    font-weight:700;
-
-    margin-bottom:15px;
-}
-
-.login-brand p{
-
-    color:#dce6ef;
-
-    line-height:1.8;
-
-    font-size:1.08rem;
-
-    max-width:420px;
-}
-
-/* ====================================
-   CARD LOGIN
-==================================== */
-
-.login-container{
-
-    order:2;
-
-    width:100%;
-    max-width:430px;
-
-    background:rgba(255,255,255,.96);
-
-    backdrop-filter:blur(10px);
-
-    padding:42px;
-
-    border-radius:22px;
-
-    border:1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.35);
-
-    flex-shrink:0;
-}
-
-.login-container h2{
-
-    text-align:center;
-
-    color:#0b2740;
-
-    margin-bottom:30px;
-
-    font-size:1.7rem;
-}
-
-label{
-
-    display:block;
-
-    margin-top:16px;
-    margin-bottom:8px;
-
-    font-weight:600;
-
-    color:#2b3d50;
-}
-
-input{
-
-    width:100%;
-
-    padding:14px 16px;
-
-    border:1px solid #d5dce5;
-
-    border-radius:12px;
-
-    background:#f7f9fc;
-
-    font-size:15px;
-
-    transition:.3s;
-}
-
-input:focus{
-
-    outline:none;
-
-    border-color:#0d6efd;
-
-    background:white;
-
-    box-shadow:
-        0 0 0 4px rgba(13,110,253,.15);
-}
-
-button{
-
-    width:100%;
-
-    margin-top:30px;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0b2740,
-            #0d6efd
-        );
-
-    transition:.3s;
-}
-
-button:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 8px 20px rgba(13,110,253,.35);
-}
-
-button:active{
-
-    transform:translateY(0);
-}
-
-/* ====================================
-   RESPONSIVO TABLET
-==================================== */
-
-@media (max-width:950px){
-
-    .login-wrapper{
-
-        padding:30px 20px;
-    }
-
-    .login-wrapper > .login-wrapper{
-
-        flex-direction:column;
-
-        gap:40px;
-
-        max-width:520px;
-    }
-
-    .login-brand{
-
-        max-width:100%;
-    }
-
-    .login-brand img{
-
-        width:180px;
-    }
-
-    .login-brand h1{
-
-        font-size:2rem;
-    }
-
-    .login-brand p{
-
-        font-size:1rem;
-    }
-
-    .login-container{
-
-        width:100%;
-
-        max-width:100%;
-    }
-
-}
-
-/* ====================================
-   RESPONSIVO CELULAR
-==================================== */
-
-@media (max-width:600px){
-
-    body{
-
-        padding:15px;
-    }
-
-    .login-wrapper{
-
-        padding:15px;
-    }
-
-    .login-wrapper > .login-wrapper{
-
-        gap:25px;
-    }
-
-    .login-brand img{
-
-        width:120px;
-    }
-
-    .login-brand h1{
-
-        font-size:1.6rem;
-    }
-
-    .login-brand p{
-
-        display:none;
-    }
-
-    .login-container{
-
-        padding:28px 22px;
-
-        border-radius:18px;
-    }
-
-    input{
-
-        padding:13px;
-
-        font-size:16px;
-    }
-
-    button{
-
-        padding:14px;
-    }
-
-}
-/* ====================================
-   SPLASH SCREEN
-==================================== */
-
-#splash-screen{
-
-    position:fixed;
-    inset:0;
-
-    z-index:99999;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    background:
-    linear-gradient(
-        135deg,
-        #071726,
-        #0B2740,
-        #12385A
-    );
-
-    transition:
-    opacity .8s ease,
-    visibility .8s ease;
-}
-
-#splash-screen.hide{
-
-    opacity:0;
-    visibility:hidden;
-}
-
-.industrial-bg::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:600px;
-    height:600px;
-
-    left:-200px;
-    top:-200px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        rgba(0,140,255,.25),
-        transparent
-    );
-
-    filter:blur(80px);
-}
-
-.industrial-bg::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    right:-150px;
-    bottom:-150px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        rgba(255,255,255,.08),
-        transparent
-    );
-
-    filter:blur(80px);
-}
-
-.halo{
-
-    position:absolute;
-
-    width:clamp(180px, 35vw, 300px);
-    height:clamp(180px, 35vw, 300px);
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        rgba(0,170,255,.4),
-        transparent 70%
-    );
-
-    filter:blur(20px);
-
-    animation:
-    pulseGlow 2s infinite ease-in-out;
-}
-
-@keyframes pulseGlow{
-
-    0%{
-        transform:scale(.9);
-        opacity:.5;
-    }
-
-    50%{
-        transform:scale(1.2);
-        opacity:1;
-    }
-
-    100%{
-        transform:scale(.9);
-        opacity:.5;
-    }
-}
-
-.gear-wrapper{
-    position:relative;
-
-    width:min(60vw, 280px);
-    height:min(50vw, 220px);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.gear{
-
-    position:absolute;
-
-    user-select:none;
-    pointer-events:none;
-}
-
-.gear-large{
-
-    width:clamp(120px, 20vw, 170px);
-
-    left:20px;
-
-    animation:
-    rotateClockwise 7s linear infinite;
-}
-
-.gear-small{
-
-    width:clamp(75px, 12vw, 110px);
-
-    left:140px;
-    top:85px;
-
-    animation:
-    rotateCounterClockwise 7s linear infinite;
-}
-
-@keyframes rotateClockwise{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes rotateCounterClockwise{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(-360deg);
-    }
-}
-
-.brand-loading{
-
-    color:white;
-
-    text-align:center;
-
-    margin-top:25px;
-}
-
-.brand-loading h1{
-
-    font-size:clamp(28px, 5vw, 42px);
-}
-
-.brand-loading p{
-
-    margin-top:10px;
-
-    color:#dce8f7;
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+   :root {
+    --primary-gradient: linear-gradient(135deg, #071726, #0b2740, #12385a);
+    --btn-gradient: linear-gradient(135deg, #0b2740, #0d6efd);
+    --progress-gradient: linear-gradient(90deg, #00afff, #58c8ff);
     
-    font-size:clamp(
-        13px,
-        2vw,
-        16px
-    );
+    --color-text-dark: #0b2740;
+    --color-text-light: #dce6ef;
+    --color-label: #2b3d50;
+    --color-input-border: #d5dce5;
+    --color-input-bg: #f7f9fc;
+    --color-primary: #0d6efd;
+    
+    --radius-card: 22px;
+    --radius-input: 12px;
+    --transition-fast: 0.3s ease;
 }
 
-.progress-container{
-
-    width:min(400px,85vw);
-
-    height:12px;
-
-    margin-top:30px;
-
-    border-radius:999px;
-
-    overflow:hidden;
-
-    background:
-    rgba(255,255,255,.15);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.progress-bar{
-
-    width:0%;
-
-    height:100%;
-
-    background:
-    linear-gradient(
-        90deg,
-        #00AFFF,
-        #58C8FF
-    );
-
-    transition:.2s;
+html, body {
+    width: 100%;
+    min-height: 100vh;
 }
 
-.percent{
-
-    margin-top:12px;
-
-    color:white;
+body {
+    background: var(--primary-gradient);
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-wrapper{
-    opacity:0;
-    animation:showLogin .8s ease forwards;
-    animation-delay:4.5s;
+/* Elipses de Fundo (Efeito Blur) */
+.background-shapes::before,
+.background-shapes::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 1;
 }
 
-@keyframes showLogin{
+.background-shapes::before {
+    width: 350px;
+    height: 350px;
+    background: #1f5ea8;
+    top: -120px;
+    left: -120px;
+    opacity: 0.25;
+}
 
-    from{
-        opacity:0;
-        transform:translateY(20px);
+.background-shapes::after {
+    width: 300px;
+    height: 300px;
+    background: #ffffff;
+    bottom: -100px;
+    right: -100px;
+    opacity: 0.08;
+}
+
+/* ==========================================================================
+   LAYOUT LOGIN (ESTRUTURA PRINCIPAL)
+   ========================================================================== */
+.login-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+    z-index: 2;
+    opacity: 0;
+    animation: showLogin 0.8s ease forwards;
+    animation-delay: 4.5s;
+}
+
+/* Área da Marca */
+.login-brand {
+    flex: 1;
+    max-width: 450px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-brand img {
+    width: 200px;
+    max-width: 80%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.15));
+}
+
+.login-brand h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.login-brand p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Card de Login */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+/* Formulário e Inputs */
+label {
+    display: block;
+    margin: 15px 0 6px 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-label);
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--color-input-border);
+    border-radius: var(--radius-input);
+    background: var(--color-input-bg);
+    font-size: 15px;
+    color: var(--color-text-dark);
+    transition: var(--transition-fast);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+}
+
+.password-container {
+    position: relative;
+}
+
+/* Botão */
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: var(--radius-input);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: var(--btn-gradient);
+    transition: var(--transition-fast);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   SPLASH SCREEN (TELA DE CARREGAMENTO)
+   ========================================================================== */
+#splash-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-gradient);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#splash-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.industrial-bg::before,
+.industrial-bg::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.industrial-bg::before {
+    width: 500px;
+    height: 500px;
+    left: -150px;
+    top: -150px;
+    background: radial-gradient(rgba(0, 140, 255, 0.2), transparent);
+}
+
+.industrial-bg::after {
+    width: 400px;
+    height: 400px;
+    right: -100px;
+    bottom: -100px;
+    background: radial-gradient(rgba(255, 255, 255, 0.06), transparent);
+}
+
+.halo {
+    position: absolute;
+    width: clamp(180px, 30vw, 260px);
+    height: clamp(180px, 30vw, 260px);
+    border-radius: 50%;
+    background: radial-gradient(rgba(0, 170, 255, 0.35), transparent 70%);
+    filter: blur(15px);
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.gear-wrapper {
+    position: relative;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gear {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+}
+
+.gear-large {
+    width: 140px;
+    left: 25px;
+    animation: rotateClockwise 6s linear infinite;
+}
+
+.gear-small {
+    width: 90px;
+    left: 135px;
+    top: 80px;
+    animation: rotateCounterClockwise 6s linear infinite;
+}
+
+/* Animações */
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(0.95); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes rotateClockwise {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes showLogin {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading Info */
+.brand-loading {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    z-index: 3;
+}
+
+.brand-loading h1 {
+    font-size: clamp(26px, 4vw, 36px);
+}
+
+.brand-loading p {
+    margin-top: 8px;
+    color: var(--color-text-light);
+    font-size: clamp(13px, 1.8vw, 15px);
+}
+
+.progress-container {
+    width: min(350px, 80vw);
+    height: 10px;
+    margin-top: 25px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.15);
+    z-index: 3;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--progress-gradient);
+    transition: width 0.2s ease;
+}
+
+.percent {
+    margin-top: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 3;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVIDADE INTELIGENTE)
+   ========================================================================== */
+
+/* Tablets e Telas Médias */
+@media (max-width: 900px) {
+    .login-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        gap: 35px;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
+    .login-brand {
+        max-width: 100%;
+    }
+
+    .login-brand img {
+        width: 160px;
+    }
+
+    .login-brand h1 {
+        font-size: 2.2rem;
     }
 }
 
-@media (max-width:480px){
-
-    .gear-wrapper{
-
-        transform:scale(.85);
+/* Smartphones */
+@media (max-width: 480px) {
+    .login-wrapper {
+        padding: 20px 15px;
+        gap: 25px;
     }
 
-    .progress-container{
-
-        width:90vw;
+    .login-brand img {
+        width: 120px;
+        margin-bottom: 10px;
     }
 
-    .brand-loading{
+    .login-brand h1 {
+        font-size: 1.8rem;
+    }
 
-        margin-top:10px;
+    .login-brand p {
+        display: none; /* Esconde descrição longa no mobile para poupar espaço */
+    }
+
+    .login-container {
+        padding: 30px 20px;
+        border-radius: 18px;
+    }
+
+    .gear-wrapper {
+        transform: scale(0.8);
     }
 }
 
-@media (max-height:500px){
-
-    .gear-wrapper{
-
-        transform:scale(.75);
+/* Telas com pouca altura (ex: Celular deitado) */
+@media (max-height: 500px) {
+    body {
+        align-items: flex-start;
     }
-
-    .brand-loading h1{
-
-        font-size:24px;
+    .login-wrapper {
+        flex-direction: row;
+        padding: 20px;
     }
-
-    .progress-container{
-
-        margin-top:15px;
+    .login-brand p {
+        display: none;
+    }
+    .gear-wrapper {
+        transform: scale(0.6);
+        height: 120px;
+    }
+    .brand-loading h1 {
+        font-size: 20px;
+    }
+    .progress-container {
+        margin-top: 10px;
     }
 }
