@@ -30,7 +30,6 @@ async function efetuarLoguin() {
             } else if (data.tipo === 'tecnico') {
                 window.location.href = 'area-tecnico.html';
             } else if (data.tipo === 'solicitante') {
-                // Redireciona para a nova tela que criamos
                 window.location.href = 'area-solicitante.html';
             } else {
                 alert("Tipo de usuário não reconhecido.");
@@ -43,10 +42,6 @@ async function efetuarLoguin() {
         alert("Erro ao conectar com o servidor.");
     }
 }
-
-/* =====================================
-   SPLASH SCREEN
-===================================== */
 
 window.addEventListener("load", () => {
 
@@ -63,10 +58,10 @@ window.addEventListener("load", () => {
     document.getElementById("loadingText");
 
     const messages = [
-        "Inicializando Sistema...",
-        "Carregando Recursos...",
-        "Sincronizando Dados...",
-        "Concluído ✓"
+        "Os gatos estão ligando os fios do servidor😺",
+        "As enguias estão carregando as baterias⚡",
+        "Os esquilos estão sincronizando dados🐿",
+        "Concluído ✅"
     ];
 
     let progress = 0;
@@ -82,7 +77,7 @@ window.addEventListener("load", () => {
             messages[msgIndex];
         }
 
-    },2500);
+    },3000);
 
     const progressTimer =
     setInterval(() => {
@@ -108,6 +103,6 @@ window.addEventListener("load", () => {
 
         }
 
-    },35);
+    },40);
 
 });

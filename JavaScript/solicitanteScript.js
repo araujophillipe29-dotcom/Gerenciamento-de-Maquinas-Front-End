@@ -156,6 +156,12 @@ async function cancelarMeuChamado(id) {
     }
 }
 
+async function carregarTabelaNovaSolicitacao() {
+    openModal
+    popularMaquinas();
+    carregarMeusChamados();
+}
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     popularMaquinas();
