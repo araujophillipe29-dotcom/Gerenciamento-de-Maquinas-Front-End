@@ -13,7 +13,7 @@ function openTab(tabName) {
     } else if (tabName === 'maquinas') {
         carregarMaquinas();
     } else if (tabName === 'solicitacao') {
-        preencherFormularioOS();
+        carregarMeusChamados()
     } else if (tabName === 'todas-solicitacoes') {
         carregarFilaGlobal();
     }
