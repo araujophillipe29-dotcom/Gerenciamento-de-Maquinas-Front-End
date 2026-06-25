@@ -7,14 +7,13 @@ function openTab(tabName) {
 
     document.getElementById(tabName).classList.add('active');
     
-    // Lógica de carregamento
-    if (tabName === 'usuarios') {
+    if (tabName === 'usuarios' && typeof carregarUsuarios === 'function') {
         carregarUsuarios(); 
-    } else if (tabName === 'maquinas') {
+    } else if (tabName === 'maquinas' && typeof carregarMaquinas === 'function') {
         carregarMaquinas();
-    } else if (tabName === 'solicitacao') {
-        carregarMeusChamados()
-    } else if (tabName === 'todas-solicitacoes') {
+    } else if (tabName === 'solicitacao' && typeof preencherFormularioOS === 'function') {
+        preencherFormularioOS();
+    } else if (tabName === 'todas-solicitacoes' && typeof carregarFilaGlobal === 'function') {
         carregarFilaGlobal();
     }
 }
