@@ -141,7 +141,7 @@ async function cancelarSolicitacao(id_fila) {
 
         if (response.ok && resultado.sucess) {
             alert(resultado.message);
-            // Atualiza a tabela que está na tela (ex: fila de todas as solicitações)
+            // Atualiza a tabela que está na tela
             if (typeof carregarFilaGlobal === 'function') carregarFilaGlobal();
         } else {
             alert("Erro ao cancelar: " + (resultado.message || "Erro desconhecido"));

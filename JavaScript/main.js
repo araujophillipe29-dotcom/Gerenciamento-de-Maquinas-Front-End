@@ -42,3 +42,8 @@ function openModal(modalId, isEdit = false) {
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
+
+function fazerLogout() {
+    localStorage.clear();
+    window.location.href = 'login.html'; 
+}
