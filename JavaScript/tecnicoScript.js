@@ -176,11 +176,16 @@ function fecharModal() {
 async function salvarFinalizacao() {
     const id_fila = document.getElementById('finalizar-id-fila').value;
     const relato = document.getElementById('descricao-finalizacao').value;
-    const dias = parseInt(document.getElementById('proxima-dias').value);
+    
+    // Captura os dias, mas deixa como null se estiver vazio
+    const diasInput = document.getElementById('proxima-dias').value;
+    const dias = diasInput ? parseInt(diasInput) : null;
+    
     const tipo = document.getElementById('proxima-tipo').value;
 
-    if (!relato || !dias || !tipo) {
-        alert("Por favor, preencha todos os campos da finalização!");
+    // Agora exigimos APENAS o preenchimento do relato
+    if (!relato) {
+        alert("Por favor, preencha o relato do que foi realizado na máquina!");
         return;
     }
 
@@ -188,7 +193,8 @@ async function salvarFinalizacao() {
         id_fila: parseInt(id_fila),
         manutencoes_realizadas: relato,
         dias: dias,
-        tipo: tipo
+        // Envia null se o tipo não for selecionado adequadamente ou se os dias forem nulos
+        tipo: dias ? tipo : null 
     };
 
     try {
