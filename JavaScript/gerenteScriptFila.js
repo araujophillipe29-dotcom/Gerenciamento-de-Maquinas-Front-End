@@ -269,14 +269,22 @@ async function carregarProximasManutencoes() {
 
         dados.forEach(p => {
             const dias = Number(p.dias_restantes);
-            let cor = "#f39c12";
-            if (dias <= 5) cor = "#c0392b";
+            
+            let cor = "#27ae60"; // Verde (Tranquilo)
+            let textoPrazo = `${dias} dias`;
+
+            if (dias <= 5 && dias >= 0) {
+                cor = "#f39c12"; // Amarelo/Laranja (Atenção, prazo curto)
+            } else if (dias < 0) {
+                cor = "#c0392b"; // Vermelho (Atrasado!)
+                textoPrazo = `Atrasado em ${Math.abs(dias)} dias`;
+            }
 
             tabela.innerHTML += `
                 <tr>
                     <td data-label="Máquina">${p.nome_maquina}</td>
                     <td data-label="Tipo">${p.proxima_manutencao_tipo}</td>
-                    <td data-label="Prazo"><b style="color:${cor}">${dias} dias</b></td>
+                    <td data-label="Prazo"><b style="color:${cor}">${textoPrazo}</b></td>
                     <td data-label="Ação">
                         <button class="btn-create" onclick="abrirModalOSRapida(${p.id_maquina}, '${p.proxima_manutencao_tipo}')">
                             Criar Solicitação
