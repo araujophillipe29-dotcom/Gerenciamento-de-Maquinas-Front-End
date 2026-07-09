@@ -323,7 +323,7 @@ tr:hover {
         width: 120px;
         flex-shrink: 0;
         text-align: left;
-        content: attr(data-label);/* Puxa automático onde existir (Módulo Gestor) */
+        content: attr(data-label);
     }
 
     /* MAPEAMENTO PARA PERFIS SEM DATA-LABEL (Técnico e Solicitante) */
@@ -346,7 +346,7 @@ tr:hover {
     #tabela-minhas-ativas td:nth-child(2)::before { content: "Máquina"; }
     #tabela-minhas-ativas td:nth-child(3)::before { content: "Técnico"; }
     #tabela-minhas-ativas td:nth-child(4)::before { content: "Status"; }
-    #tabela-minhas-ativas td:nth-child(5)::before { content: "Ações"; }
+    #tabela-minhas-ativas td:nth-child(5)::before { content: "Situação"; }
 
     /* 4. Solicitante: Meus Chamados Concluídos */
     #tabela-minhas-concluidas td:nth-child(1)::before { content: "ID"; }
@@ -355,14 +355,12 @@ tr:hover {
     #tabela-minhas-concluidas td:nth-child(4)::before { content: "Relato Técnico"; }
     #tabela-minhas-concluidas td:nth-child(5)::before { content: "Status"; }
 
-    /* Ajuste para botões de ação dentro dos cards ocuparem espaço natural */
     td button {
         margin-right: 5px;
         padding: 6px 12px !important;
         font-size: 0.85rem !important;
     }
     
-    /* Ajustes dos Modais no Mobile */
     .modal-content {
         padding: 20px;
     }
