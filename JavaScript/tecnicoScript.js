@@ -185,6 +185,7 @@ async function salvarFinalizacao() {
 
     if (diasInput <= 0){
         alert("Por favor, adicione uma quantidade de dias válida!")
+        return;
     }
     if (!relato) {
         alert("Por favor, preencha o relato do que foi realizado na máquina!");
