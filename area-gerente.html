@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Máquinas</title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    
+    <link rel="stylesheet" href="CSS/style.css">
+
 </head>
+
 <body>
 
     <header>
@@ -16,32 +18,50 @@
 
     <main class="main-container">
         <nav class="tabs">
-            <button id="btn-tab-usuarios" class="tab-btn active" onclick="openTab('usuarios')">Usuários</button>
-            <button id="btn-tab-maquinas" class="tab-btn" onclick="openTab('maquinas')">Máquinas</button>
-            <button id="btn-tab-solicitacao" class="tab-btn" onclick="openTab('solicitacao')">Nova Solicitação</button>
-            <button id="btn-tab-todas" class="tab-btn" onclick="openTab('todas-solicitacoes')">Todas Solicitações</button>
-            <button id="btn-tab-proximas" class="tab-btn" onclick="openTab('proximas-manutencoes')">Próximas Manutenções</button>
-            <button onclick="fazerLogout()" class="btn-delete" style="max-width: 100px; margin: 0;">Sair</button>
+            <button id="btn-tab-usuarios" class="tab-btn active" onclick="openTab('usuarios')">
+                Usuários
+            </button>
+
+            <button id="btn-tab-maquinas" class="tab-btn" onclick="openTab('maquinas')">
+                Máquinas
+            </button>
+
+            <button id="btn-tab-solicitacao" class="tab-btn" onclick="openTab('solicitacao')">
+                Nova Solicitação
+            </button>
+
+            <button id="btn-tab-todas-solicitacoes" class="tab-btn" onclick="openTab('todas-solicitacoes')">
+                Todas Solicitações
+            </button>
+
+            <button id="btn-tab-proximas-manutencoes" class="tab-btn" onclick="openTab('proximas-manutencoes')">
+                Próximas Manutenções
+            </button>
+            <button onclick="fazerLogout()" class="btn-delete" style="max-width: 100px; margin: 0;">
+                Sair
+            </button>
         </nav>
 
         <section id="solicitacao" class="content-section">
-            <div class="actions-bar"><h2>Abrir Ordem de Serviço</h2></div>
+            <div class="actions-bar">
+                <h2>Abrir Ordem de Serviço</h2>
+            </div>
             <div style="max-width: 600px; margin: 20px auto; padding: 25px; background: #f9f9f9; border-radius: 12px;">
-                
+
                 <label>Quem está solicitando?</label>
                 <select id="select-solicitante-os" class="input-estilizado"></select>
-        
+
                 <label>Selecione a Máquina</label>
                 <select id="select-maquinas-os" class="input-estilizado"></select>
-        
+
                 <label>Atribuir Técnico (Opcional)</label>
                 <select id="select-tecnico-os" class="input-estilizado">
                     <option value="">Aguardar técnico disponível</option>
                 </select>
-        
+
                 <label>Descrição do Problema</label>
                 <textarea id="input-problema-os" rows="4" class="input-estilizado"></textarea>
-        
+
                 <button class="btn-create" onclick="enviarNovaSolicitacao()">Registrar</button>
             </div>
         </section>
@@ -69,7 +89,8 @@
 
         <section id="maquinas" class="content-section">
             <div class="actions-bar">
-                <button class="btn-create" onclick="limparCampos(); openModal('modalMaquina', false)">Criar Máquina</button>
+                <button class="btn-create" onclick="limparCampos(); openModal('modalMaquina', false)">Criar
+                    Máquina</button>
             </div>
             <div class="table-container">
                 <table>
@@ -92,12 +113,15 @@
             <div class="actions-bar">
                 <h2>Monitoramento Global de Chamados</h2>
             </div>
-        
+
             <div class="tabs sub-tabs" style="background: #e9ecef; margin-bottom: 20px; border-radius: 8px;">
-                <button class="tab-btn sub-active" id="sub-btn-ativas" onclick="switchSubTab('ativas')">Solicitações Ativas</button>
-                <button class="tab-btn" id="sub-btn-concluidas" onclick="switchSubTab('concluidas'); carregarManutencoesConcluidas()">Histórico (Concluídas)</button>
+                <button class="tab-btn sub-active" id="sub-btn-ativas" onclick="switchSubTab('ativas')">Solicitações
+                    Ativas</button>
+                <button class="tab-btn" id="sub-btn-concluidas"
+                    onclick="switchSubTab('concluidas'); carregarManutencoesConcluidas()">Histórico
+                    (Concluídas)</button>
             </div>
-        
+
             <div id="container-ativas" class="sub-content">
                 <div class="table-container">
                     <table>
@@ -115,7 +139,7 @@
                     </table>
                 </div>
             </div>
-        
+
             <div id="container-concluidas" class="sub-content" style="display: none;">
                 <div class="table-container">
                     <table>
@@ -133,12 +157,12 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="proximas-manutencoes" class="content-section">
             <div class="actions-bar">
                 <h2>Próximas Manutenções</h2>
             </div>
-        
+
             <div class="table-container">
                 <table>
                     <thead>
@@ -149,7 +173,7 @@
                             <th>Ação</th>
                         </tr>
                     </thead>
-        
+
                     <tbody id="tabela-proximas"></tbody>
                 </table>
             </div>
@@ -161,23 +185,23 @@
         <div class="modal-content">
             <h2>Dados do Usuário</h2>
             <input type="hidden" id="userId">
-            
+
             <label>Nome</label>
             <input type="text" id="userName" placeholder="Digite o nome">
-            
+
             <label>Email</label>
             <input type="email" id="userEmail" placeholder="exemplo@email.com">
-            
+
             <label>Senha</label>
             <input type="password" id="userSenha" placeholder="Redefinir a senha">
-            
+
             <label>Tipo</label>
             <select id="userTipo">
                 <option value="tecnico">Técnico</option>
                 <option value="admin">Administrador</option>
                 <option value="solicitante">Solicitante</option>
             </select>
-            
+
             <div class="modal-buttons">
                 <button class="btn-secondary" onclick="closeModal('modalUsuario')">Cancelar</button>
                 <button class="btn-primary" onclick="salvarUsuario()">Salvar</button>
@@ -188,24 +212,24 @@
     <div id="modalMaquina" class="modal-overlay">
         <div class="modal-content">
             <h2>Dados da Máquina</h2>
-            
+
             <div id="idField" style="display:none;">
                 <label>ID</label>
                 <input type="text" id="editId" disabled>
             </div>
-    
+
             <label>Máquina</label>
             <input type="text" id="editNome" placeholder="Nome">
-    
+
             <label>Descrição</label>
             <input type="text" id="editDescricao" placeholder="Descrição">
-    
+
             <label>Situação</label>
             <select id="editSituacao">
                 <option value="1">Ativo</option>
                 <option value="0">Desativado</option>
             </select>
-    
+
             <div class="modal-buttons">
                 <button class="btn-secondary" onclick="closeModal('modalMaquina')">Cancelar</button>
                 <button class="btn-primary" onclick="salvarMaquina()">Salvar</button>
@@ -213,10 +237,12 @@
         </div>
     </div>
 
-    
-    
+
+
     <script src="../JavaScript/gerenteScriptMaquinas.js"></script>
     <script src="../JavaScript/gerenteScriptUsuario.js"></script>
-    <script src="../JavaScript/gerenteScriptFila.js"></script> <script src="../JavaScript/main.js"></script>
+    <script src="../JavaScript/gerenteScriptFila.js"></script>
+    <script src="../JavaScript/main.js"></script>
 </body>
+
 </html>

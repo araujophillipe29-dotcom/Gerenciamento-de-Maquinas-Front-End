@@ -88,12 +88,11 @@ header h1 {
 }
 
 /* Estados ativos (Azul escuro com texto branco) */
-.tab-btn.active, 
-.tab-btn.sub-active,
-button[style*="background-color: rgb(27, 54, 93)"] { 
-    background-color: #1b365d !important;
-    color: #ffffff !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.tab-btn.active,
+.tab-btn.sub-active {
+    background-color: #1b365d;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 
 /* ==========================================================================

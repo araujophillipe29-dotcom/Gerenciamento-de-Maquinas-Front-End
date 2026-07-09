@@ -1,18 +1,27 @@
 function openTab(tabName) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => section.classList.remove('active'));
+    document.querySelectorAll('.content-section')
+        .forEach(section => section.classList.remove('active'));
 
-    const tabs = document.querySelectorAll('.tab-btn');
-    tabs.forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-btn')
+        .forEach(btn => btn.classList.remove('active'));
 
     document.getElementById(tabName).classList.add('active');
-    
+
+    const botao = document.getElementById(`btn-tab-${tabName}`);
+
+    if (botao) {
+        botao.classList.add('active');
+    }
+
     if (tabName === 'usuarios' && typeof carregarUsuarios === 'function') {
-        carregarUsuarios(); 
+        carregarUsuarios();
+
     } else if (tabName === 'maquinas' && typeof carregarMaquinas === 'function') {
         carregarMaquinas();
+
     } else if (tabName === 'solicitacao' && typeof preencherFormularioOS === 'function') {
         preencherFormularioOS();
+
     } else if (tabName === 'todas-solicitacoes' && typeof carregarFilaGlobal === 'function') {
         carregarFilaGlobal();
     }
