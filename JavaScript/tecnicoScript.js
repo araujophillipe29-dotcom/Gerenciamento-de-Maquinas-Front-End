@@ -183,7 +183,9 @@ async function salvarFinalizacao() {
     
     const tipo = document.getElementById('proxima-tipo').value;
 
-    // Agora exigimos APENAS o preenchimento do relato
+    if (diasInput <= 0){
+        alert("Por favor, adicione uma quantidade de dias válida!")
+    }
     if (!relato) {
         alert("Por favor, preencha o relato do que foi realizado na máquina!");
         return;
