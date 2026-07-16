@@ -1,4 +1,4 @@
-const API_URL_USU = 'https://gerenciamento-de-maquinas-back-end-production-2502.up.railway.app/usu';
+const API_URL_USU = 'https://gerenciamento-de-maquinas-back-end-production.up.railway.app/usu';
 
 async function carregarUsuarios() {
     try {
